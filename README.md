@@ -1,58 +1,83 @@
-# Tradutor de Artigos Técnicos com Precisão Terminológica
+[![Status](https://img.shields.io/badge/Status-MVP%20Concluído-brightgreen)](https://github.com/raphaelmendes-dev/Technical-Article-Translator)
+[![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-AI-lightblue?logo=microsoftazure&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+<div align="center">
+  <h1>Technical-Article-Translator</h1>
+  <p><strong>Tradutor de Artigos Técnicos com Preservação Terminológica Determinística</strong></p>
+  <p>Tradução precisa de textos de IA/ML/Azure mantendo termos técnicos intactos – 100% local e gratuito.</p>
 
-**Projeto Final – Bootcamp Microsoft Certification Challenge AI-102 (DIO)**
+  <p>
+    <a href="https://github.com/raphaelmendes-dev"><strong>Meu GitHub</strong></a> •
+    <a href="https://www.linkedin.com/in/raphaelmendes-dev/">LinkedIn</a> •
+    <a href="mailto:python.dev.raphael@gmail.com">Contato</a>
+  </p>
 
-## Objetivo do Desafio
-Desenvolver uma solução de tradução automática de artigos técnicos utilizando Azure AI, com foco em garantir **precisão terminológica** e contexto específico do domínio técnico (ex: Inteligência Artificial, Machine Learning, Azure).
+  <p><em>README em <a href="README.en.md">English</a></em></p>
+</div>
 
-## Problema Enfrentado
-Não foi possível criar o recurso Azure AI Translator devido à rejeição sistemática de cartões brasileiros no cadastro do Azure Free Tier (problema conhecido e confirmado pela equipe DIO – Beatriz/Support).
+## 🎯 Visão Geral
 
-## Solução Alternativa Implementada
-- **Interface**: Streamlit (aplicativo web simples e interativo)  
-- **Tradução**: Biblioteca `deep-translator` (usa Google Translate de forma gratuita e ilimitada)  
-- **Precisão terminológica**: Glossário customizado em Python com proteção robusta de termos (marcadores únicos sequenciais para evitar alterações indesejadas durante a tradução)  
-- Preserva termos técnicos como: `machine learning`, `Azure AI`, `Custom Translator`, `prompt engineering`, `RAG`, `LLM`, etc.
+Solução de tradução automática para artigos técnicos que garante **precisão terminológica** em domínios como IA, ML e Azure.  
 
-## Como Executar Localmente
+- Usa **glossário determinístico** com proteção robusta (substituição sequencial + restauração pós-tradução)
+- Evita alterações indesejadas em termos chave: LLM, RAG, prompt engineering, Azure AI, etc.
+- Interface Streamlit simples e interativa
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/SEU_USUARIO/tradutor-artigos-tecnicos-ai-102.git
-   cd tradutor-artigos-tecnicos-ai-102
+Inspirado no Azure AI Translator + Custom Translator, implementado localmente sem dependências de nuvem.
 
-2. (Recomendado) Crie e ative um ambiente virtual:
-    python -m venv venv
-    venv\Scripts\activate   # No Windows
-# ou
-    source venv/bin/activate   # No Linux/Mac
+## ✨ Funcionalidades
 
-3. Instale as dependências:
-    python -m pip install streamlit deep-translator
+- Cole texto técnico (qualquer idioma de origem)
+- Tradução para inglês, espanhol, francês, alemão, italiano
+- Glossário customizado preserva termos exatos (case-insensitive)
+- Interface com duas colunas (original vs traduzido)
+- Botão limpar e feedback de processamento
 
-4. Execute o aplicativo:
-    streamlit run app.py
+Fluxo: Texto → Proteção determinística → Tradução → Restauração → Resultado seguro.
 
-O app abrirá automaticamente no navegador (geralmente em http://localhost:8501).
+## 🛠️ Stack Técnica
 
-## Como Usar
-- Cole um texto técnico de exemplo
-- Escolha um idioma
-- Clique em traduzir e veja como os termos técnicos foram preservados
+- Backend → Python 3.12+
+- UI → Streamlit
+- Tradução → deep-translator (Google Translate gratuito)
+- Glossário/Proteção → re (regex), dicionário customizado
 
-## Próximos Passos (se tivesse acesso ao Azure)
-- Integrar o SDK oficial azure-ai-translation-text
-- Usar o recurso Custom Translator com glossário oficial
-- Fazer deploy no Azure App Service ou Azure Static Web Apps
+## 🚀 Como Rodar
 
-Obrigado pela oportunidade no bootcamp!
-Qualquer dúvida, é só chamar.
-Raphael
-Franca/SP – 2026
+- CloneBashgit clone https://github.com/raphaelmendes-dev/Technical-Article-Translator.git
+- cd Technical-Article-Translator
+- Ambiente virtualBashpython -m venv venv
+- venv\Scripts\activate  # Windows
+- ou source venv/bin/activate  # Linux/Mac
+- DependênciasBashpip install streamlit deep-translator
+- ExecuteBashstreamlit run app.py
+
+Acesse: http://localhost:8501
+
+## 💡 Como Usar
+
+- nCole artigo técnico (ex.: texto sobre LLM, Azure AI)
+- Escolha idioma alvo
+- Clique em "Traduzir" → veja termos preservados
+
+## 📊 Resultados & Diferenciais
+
+- 100% determinístico na preservação de terminologia (sem alucinações)
+- Alta precisão em textos de IA/ML/Azure
+- Solução gratuita e local (sem chave API)
+- Escalável: pode integrar Azure AI Translator real ou Ollama local no futuro
+
+## 🤝 Contribua
+Contribuições bem-vindas! Fork → branch → PR.
+A
+Tradutores customizados, processamento de texto técnico, arquiteturas híbridas (determinístico + IA), Azure AI, Streamlit, FastAPI.
+Projetos funcionais entregues.
+
+Contato: raphaelmendes-dev | python.dev.raphael@gmail.com | LinkedIn
+
+## ⭐ Dê uma estrela se ajudou!
 
 
+Última atualização: Março 2026
