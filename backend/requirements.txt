@@ -2,6 +2,6 @@
 uvicorn[standard]
 python-multipart
 deep-translator
-PyMuPDF
+pypdf
 pydantic
 python-dotenv

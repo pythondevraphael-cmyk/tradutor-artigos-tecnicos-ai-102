@@ -1,15 +1,19 @@
-"""
-Rs4Machine · Translatia
-Serviço: extração de texto de PDF
-"""
-
+from pypdf import PdfReader
 import io
-import pypdf
-
 
 def extract_text_from_pdf(file_bytes: bytes) -> str:
-    """Extrai texto de um PDF enviado como bytes."""
-    reader = pypdf.PdfReader(io.BytesIO(file_bytes))
-    pages  = [page.extract_text() or "" for page in reader.pages]
-    text   = "\n\n".join(p.strip() for p in pages if p.strip())
-    return text
+    reader = PdfReader(io.BytesIO(file_bytes))
+    pages = [page.extract_text() or "" for page in reader.pages]
+    text = "\n".join(pages)
+    lines = text.splitlines()
+    cleaned, prev_blank = [], False
+    for line in lines:
+        stripped = line.strip()
+        if stripped == "":
+            if not prev_blank:
+                cleaned.append("")
+            prev_blank = True
+        else:
+            cleaned.append(stripped)
+            prev_blank = False
+    return "\n".join(cleaned).strip()
